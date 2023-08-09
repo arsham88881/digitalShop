@@ -17,17 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{780E49EC-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{0B446A8C-D4EE-4467-BB6C-6679D9E96135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.domain", "digitalShop.domain\digitalShop.domain.csproj", "{D534FAE3-9C5E-41D3-9E3A-EB914600D543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "digitalShop.domain", "digitalShop.domain\digitalShop.domain.csproj", "{D534FAE3-9C5E-41D3-9E3A-EB914600D543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.application", "digitalShop.application\digitalShop.application.csproj", "{76E4B47E-4787-421A-A0F2-1C61529AAC1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "digitalShop.application", "digitalShop.application\digitalShop.application.csproj", "{76E4B47E-4787-421A-A0F2-1C61529AAC1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.common", "digitalShop.common\digitalShop.common.csproj", "{78E19D8A-5818-4F69-A762-5751D1EBB34D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "digitalShop.common", "digitalShop.common\digitalShop.common.csproj", "{78E19D8A-5818-4F69-A762-5751D1EBB34D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.infrastructure", "digitalShop.infrastructure\digitalShop.infrastructure.csproj", "{7EE35FC9-12AA-4108-939B-9ADE70B2F514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "digitalShop.infrastructure", "digitalShop.infrastructure\digitalShop.infrastructure.csproj", "{7EE35FC9-12AA-4108-939B-9ADE70B2F514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.Persistence", "digitalShop.Persistence\digitalShop.Persistence.csproj", "{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "digitalShop.Persistence", "digitalShop.Persistence\digitalShop.Persistence.csproj", "{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalShop.website", "digitalShop.website\digitalShop.website.csproj", "{E9592229-D3A4-4528-BC17-B609288D43A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "endpoint.site", "endpoint.site\endpoint.site.csproj", "{F68EB561-C5B1-4B72-BDCF-D329803F6C14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +55,10 @@ Global
 		{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9592229-D3A4-4528-BC17-B609288D43A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9592229-D3A4-4528-BC17-B609288D43A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9592229-D3A4-4528-BC17-B609288D43A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9592229-D3A4-4528-BC17-B609288D43A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68EB561-C5B1-4B72-BDCF-D329803F6C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68EB561-C5B1-4B72-BDCF-D329803F6C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68EB561-C5B1-4B72-BDCF-D329803F6C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68EB561-C5B1-4B72-BDCF-D329803F6C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,7 +73,7 @@ Global
 		{78E19D8A-5818-4F69-A762-5751D1EBB34D} = {5F1FA1A1-8F7C-411C-9B41-4175A53EB4A7}
 		{7EE35FC9-12AA-4108-939B-9ADE70B2F514} = {386A2FA2-C5BE-4027-A6D8-3B97BA5BD3A4}
 		{8E7FCA53-D0EC-4CC7-8E9D-F6445294CA7B} = {386A2FA2-C5BE-4027-A6D8-3B97BA5BD3A4}
-		{E9592229-D3A4-4528-BC17-B609288D43A2} = {0B446A8C-D4EE-4467-BB6C-6679D9E96135}
+		{F68EB561-C5B1-4B72-BDCF-D329803F6C14} = {0B446A8C-D4EE-4467-BB6C-6679D9E96135}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BF266C5-81A6-4581-A878-30F79AD4E900}
