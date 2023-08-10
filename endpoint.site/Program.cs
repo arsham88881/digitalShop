@@ -1,7 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using digitalShop.Persistence.contexts;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.Drawing.Text;
+using digitalShop.application.Interfaces;
+
+    var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
+string connection = @"Data Source = ARSHAM_DESKTOP\NSQLSERVER; Initial catalog = DigitalShopDB; TrustServerCertificate=True; User Id= sa;Password=1234;";
+builder.Services.AddDbContext<DataBaseContext>(option => option.UseSqlServer(connection)); //database context
+
 
 var app = builder.Build();
 
@@ -14,6 +25,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
