@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\digitalShop.application\digitalShop.application.csproj" />
+    <ProjectReference Include="..\digitalShop.common\digitalShop.common.csproj" />
     <ProjectReference Include="..\digitalShop.Persistence\digitalShop.Persistence.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿
+﻿@addTagHelper @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
 @{
     Layout = null;
 }
@@ -47,17 +47,17 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
+                                    <a class="nav-link active" href="~/Admin/Home/index">
                                         Dashboard
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="products.html">Products</a>
+                                    <a class="nav-link" href="~/Admin/Product/index">Products</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="accounts.html">Accounts</a>
+                                    <a class="nav-link" href="~/Admin/Account/index">Accounts</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav">

@@ -137,7 +137,7 @@ a:focus {
 }
 
 .tm-col-big {
-  width: 39%;
+  width: 50%;
 }
 
 .tm-col-small {
@@ -260,7 +260,7 @@ label {
 
 .table td,
 .table th {
-  padding: 20px 24px;
+  padding: 4px 4px;  /*handed modifayedf(arsham)*/
 }
 
 .table-hover tbody tr:hover {

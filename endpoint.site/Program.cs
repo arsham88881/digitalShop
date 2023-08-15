@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Drawing.Text;
 using digitalShop.application.Interfaces;
+using digitalShop.application.Services.Users.Queries.getUser;
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,10 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 string connection = @"Data Source = ARSHAM_DESKTOP\NSQLSERVER; Initial catalog = DigitalShopDB; TrustServerCertificate=True; User Id= sa;Password=1234;";
 builder.Services.AddDbContext<DataBaseContext>(option => option.UseSqlServer(connection)); //database context
 
+builder.Services.AddScoped<Igetuserlistservice, getuserlistservice>();
 
+
+/////////////////////////////////////////////////////////////////////////////////////
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

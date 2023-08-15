@@ -1,4 +1,6 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+@using digitalShop.application.Services.Users.Queries.getUser;
+@model ResultGetUsersDTO;
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -13,29 +15,38 @@
                     <h2 class="tm-block-title d-inline-block">Accounts</h2>
                 </div>
             </div>
-            <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                <li class="tm-list-group-item">
-                    Donec eget libero
-                </li>
-                <li class="tm-list-group-item">
-                    Nunc luctus suscipit elementum
-                </li>
-                <li class="tm-list-group-item">
-                    Maecenas eu justo maximus
-                </li>
-                <li class="tm-list-group-item">
-                    Pellentesque auctor urna nunc
-                </li>
-                <li class="tm-list-group-item">
-                    Sit amet aliquam lorem efficitur
-                </li>
-                <li class="tm-list-group-item">
-                    Pellentesque auctor urna nunc
-                </li>
-                <li class="tm-list-group-item">
-                    Sit amet aliquam lorem efficitur
-                </li>
-            </ol>
+            <table class="table">
+                 <thead>
+                     <tr>
+                         <th>
+                             Name
+                         </th>
+                         <th>
+                             Email
+                         </th>
+                         <th>actions</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                  @foreach (var item in Model.users)
+                  {
+                      <!--modifyed part model-->
+                      <tr>
+                          <td>
+                              @item.name
+                          </td>
+                          <td>
+                              @item.email
+                          </td>
+                          <td>
+                          <td>
+                                  @*<!--@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |      /*true for phone */-->*@
+                                  @Html.ActionLink("Details", "Details", new { /* phone = item.Phone  id=item.PrimaryKey */ }) |
+                                  @Html.ActionLink("Delete", "Delete", new { /* phone = item.Phone  id=item.PrimaryKey */ })
+                          </td>
+                      </tr>
+                  }
+            </table>
         </div>
     </div>
     <div class="tm-col tm-col-big">
@@ -80,21 +91,11 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="tm-col tm-col-small">
-        <div class="bg-white tm-block">
-            <h2 class="tm-block-title">Profile Image</h2>
-            <img src="img/profile-image.png" alt="Profile Image" class="img-fluid">
-            <div class="custom-file mt-3 mb-3">
-                <input id="fileInput" type="file" style="display:none;" />
-                <input type="button" class="btn btn-primary d-block mx-xl-auto" value="Upload New..." onclick="document.getElementById('fileInput').click();" />
-            </div>
-        </div>
-    </div>
+
 </div>
 
