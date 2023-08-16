@@ -4,8 +4,11 @@ using Microsoft.Extensions.Configuration;
 using System.Drawing.Text;
 using digitalShop.application.Interfaces;
 using digitalShop.application.Services.Users.Queries.getUser;
+using Microsoft.Data.SqlClient;
+using digitalShop.application.Services.Users.Queries.getRole;
+using digitalShop.application.Services.Users.Commands.RegesterUser;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -15,6 +18,8 @@ string connection = @"Data Source = ARSHAM_DESKTOP\NSQLSERVER; Initial catalog =
 builder.Services.AddDbContext<DataBaseContext>(option => option.UseSqlServer(connection)); //database context
 
 builder.Services.AddScoped<Igetuserlistservice, getuserlistservice>();
+builder.Services.AddScoped<IRigesterUserService, RigesterUserService>();
+builder.Services.AddScoped<IgetRolesService, GetRolesService>();
 
 
 /////////////////////////////////////////////////////////////////////////////////////

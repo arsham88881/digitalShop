@@ -71,13 +71,20 @@
                             <label for="password">Password</label>
                             <input placeholder="******" id="password" name="password" type="password" class="form-control validate">
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label for="password2">Re-enter Password</label>
                             <input placeholder="******" id="password2" name="password2" type="password" class="form-control validate">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input placeholder="010-030-0440" id="phone" name="phone" type="tel" class="form-control validate">
+                            <div class="input-group mb-3">
+                                <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
+                                <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="category" multiple>
+                                    <option selected="">Select one</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Operator</option>
+                                    <option value="3">Normall User</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-4">
@@ -92,6 +99,11 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-8 tm-btn-right">
+                    <a href="~/admin/account/create" class="btn btn-danger">Create Account</a>
                 </div>
             </div>
         </div>

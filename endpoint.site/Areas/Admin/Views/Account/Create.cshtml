@@ -1,0 +1,61 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="tm-col tm-col-big">
+    <div class="bg-white tm-block" style="margin-top : 60px; margin=auto;">   <!--hand modifying (arsham)-->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="tm-block-title">Create Account</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form action="" class="tm-signup-form">
+                    <div class="form-group">
+                        <label for="name">Account Name</label>
+                        <input placeholder="Vulputate Eleifend Nulla" id="name" name="name" type="text" class="form-control validate">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Account Email</label>
+                        <input placeholder="vulputate@eleifend.co" id="email" name="email" type="email" class="form-control validate">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input placeholder="******" id="password" name="password" type="password" class="form-control validate">
+                    </div>
+                    <div class=" form-group">
+                        <label for="password2">Re-enter Password</label>
+                        <input placeholder="******" id="password2" name="password2" type="password" class="form-control validate">
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
+                            
+                            <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="category" asp-items="ViewBag.roles" multiple>
+                                
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-8 tm-btn-right">
+                            <button type="submit" class="btn btn-danger">
+                                Create Account
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-8 tm-btn-right">
+                        <a href="~/admin/home/index" class="btn btn-danger">
+                            back
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
