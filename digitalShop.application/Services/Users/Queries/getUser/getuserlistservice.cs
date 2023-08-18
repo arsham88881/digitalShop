@@ -22,6 +22,7 @@ namespace digitalShop.application.Services.Users.Queries.getUser
             {
                 email = p.Email,
                 name = p.FullName,
+                IsActive = p.IsActive,
                 id = p.Id,
             }).ToList();
             return new ResultGetUsersDTO

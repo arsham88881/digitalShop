@@ -5,6 +5,7 @@
         public long id;
         public string name;
         public string email;
+        public bool IsActive;
 
     }
 

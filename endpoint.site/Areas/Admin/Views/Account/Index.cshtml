@@ -25,6 +25,9 @@
                          <th>
                              Email
                          </th>
+                         <th>
+                            activation
+                         </th>
                          <th>actions</th>
                      </tr>
                  </thead>
@@ -40,10 +43,10 @@
                               @item.email
                           </td>
                           <td>
+                              @item.IsActive
                           <td>
-                                  @*<!--@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |      /*true for phone */-->*@
-                                  @Html.ActionLink("Details", "Details", new { /* phone = item.Phone  id=item.PrimaryKey */ }) |
-                                  @Html.ActionLink("Delete", "Delete", new { /* phone = item.Phone  id=item.PrimaryKey */ })
+                               @Html.ActionLink("Change status", "ChangeStatus", new { UserId = item.id }) |
+                               @Html.ActionLink("Remove", "Remove", new { UserId = item.id  })
                           </td>
                       </tr>
                   }

@@ -1,4 +1,6 @@
-﻿using digitalShop.application.Services.Users.Commands.RegesterUser;
+﻿using digitalShop.application.Services.Users.Commands.Change_status;
+using digitalShop.application.Services.Users.Commands.RegesterUser;
+using digitalShop.application.Services.Users.Commands.RemoveUser;
 using digitalShop.application.Services.Users.Queries.getRole;
 using digitalShop.application.Services.Users.Queries.getUser;
 using digitalShop.common.DTOClasses;
@@ -15,11 +17,19 @@ namespace endpoint.site.Areas.Admin.Controllers
         private readonly Igetuserlistservice _getuserlist;
         private readonly IRigesterUserService _rigesterUser;
         private readonly IgetRolesService _getRolesService;
-        public AccountController(Igetuserlistservice getuserlist, IRigesterUserService rigesterUser, IgetRolesService getRolesService)
+        private readonly IRemoveUserService _removeUser;
+        private readonly IChangeStatusUserService _changeStatusUser;
+        public AccountController(Igetuserlistservice getuserlist,
+                               IRigesterUserService rigesterUser,
+                               IgetRolesService getRolesService,
+                               IRemoveUserService removeUserService,
+                               IChangeStatusUserService changeStatusUser)
         {
             _getuserlist = getuserlist;
             _rigesterUser = rigesterUser;
             _getRolesService = getRolesService;
+            _removeUser = removeUserService;
+            _changeStatusUser = changeStatusUser;
         }
         public IActionResult Index(string searchkey,int page=1)
         {
@@ -30,14 +40,11 @@ namespace endpoint.site.Areas.Admin.Controllers
                 searchKey = searchkey,
             }));
         }
-        //اصلا داخل سیستم روتینگ هیچ کدوم رو تشخیص نمیدهد فقط توسط لینک به این جا کشیده میشود وگرنه اصلا سیستم روتینگ کار نمیکند
-        //[Route("Create")]
         [HttpGet]
         public IActionResult Create() {
            ViewBag.roles = new SelectList(_getRolesService.Execute().data, "Id", "Name"); //in html tag defined value tag : id and defined tage name : name
             return View();
         }
-        //[Route("Create")]
         [HttpPost]
         public IActionResult Create(RequestRigesterServiceDTO requestRigester)
         {
@@ -62,8 +69,51 @@ namespace endpoint.site.Areas.Admin.Controllers
                 return View();
             }
         }
+        //[HttpPost] true way for post method and ajax in client side
+        public IActionResult Remove(long UserId)
+        {
+            try
+            {
+                var temmmp = _removeUser.execute(UserId);
+                ViewBag.RemoveResult = temmmp.message;
+                ViewBag.RemoveSuccess = temmmp.IsSuccess;
+                if(temmmp.IsSuccess == true)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return View();
+                }
 
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
+        public IActionResult ChangeStatus(long UserId)
+        {
+            try
+            {
+                var temmmp = _changeStatusUser.execute(UserId);
+                ViewBag.ChangeResult = temmmp.message;
+                ViewBag.ChangeSuccess = temmmp.IsSuccess;
+                if (temmmp.IsSuccess == true)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
     }
 }
