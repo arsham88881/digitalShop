@@ -15,7 +15,7 @@ namespace digitalShop.application.Services.Users.Queries.getRole
         {
             var roles = _context.roles.ToList().Select(p => new RolesDto
             {
-                Id = p.ID,
+                Id = p.Id,
                 Name = p.Name
             }).ToList();
 

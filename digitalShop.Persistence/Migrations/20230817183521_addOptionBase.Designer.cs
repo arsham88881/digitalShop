@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using digitalShop.Persistence.contexts;
 
@@ -11,9 +12,11 @@ using digitalShop.Persistence.contexts;
 namespace digitalShop.Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230817183521_addOptionBase")]
+    partial class addOptionBase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,21 +57,21 @@ namespace digitalShop.Persistence.Migrations
                         new
                         {
                             Id = 1L,
-                            InsertTime = new DateTime(2023, 8, 17, 22, 9, 9, 632, DateTimeKind.Local).AddTicks(6486),
+                            InsertTime = new DateTime(2023, 8, 17, 22, 5, 21, 588, DateTimeKind.Local).AddTicks(6061),
                             IsRemoved = false,
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2L,
-                            InsertTime = new DateTime(2023, 8, 17, 22, 9, 9, 632, DateTimeKind.Local).AddTicks(6544),
+                            InsertTime = new DateTime(2023, 8, 17, 22, 5, 21, 588, DateTimeKind.Local).AddTicks(6132),
                             IsRemoved = false,
                             Name = "Operator"
                         },
                         new
                         {
                             Id = 3L,
-                            InsertTime = new DateTime(2023, 8, 17, 22, 9, 9, 632, DateTimeKind.Local).AddTicks(6558),
+                            InsertTime = new DateTime(2023, 8, 17, 22, 5, 21, 588, DateTimeKind.Local).AddTicks(6151),
                             IsRemoved = false,
                             Name = "Customer"
                         });
@@ -92,9 +95,6 @@ namespace digitalShop.Persistence.Migrations
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");

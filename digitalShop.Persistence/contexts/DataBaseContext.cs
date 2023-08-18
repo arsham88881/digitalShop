@@ -1,5 +1,6 @@
 ﻿using digitalShop.common.role;
 using digitalShop.domain.entites.users;
+using digitalShop.Persistence.Migrations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,27 @@ namespace digitalShop.Persistence.contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().HasData(new Role { ID = 1, Name = UserRoles.Admin });
-            modelBuilder.Entity<Role>().HasData(new Role { ID = 2, Name = UserRoles.Operator});
-            modelBuilder.Entity<Role>().HasData(new Role { ID = 3, Name = UserRoles.Customer});
+            SeedRoles(modelBuilder);
 
+            modelBuilder.Entity<User>().HasIndex(item => item.Email).IsUnique();
+
+            queryFilters(modelBuilder);
+            
+
+        }
+
+        private void queryFilters(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Role>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<UserInRole>().HasQueryFilter(p => !p.IsRemoved); 
+        }
+
+        private void SeedRoles (ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = UserRoles.Admin });
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = UserRoles.Operator });
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = UserRoles.Customer });
         }
     }
 }

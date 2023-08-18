@@ -1,4 +1,5 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @using digitalShop.application.Services.Users.Queries.getUser;
 @model ResultGetUsersDTO;
 @{
@@ -78,11 +79,7 @@
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
-                                <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="category" multiple>
-                                    <option selected="">Select one</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Operator</option>
-                                    <option value="3">Normall User</option>
+                                <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="category" asp-items="ViewBag.roles" multiple>
                                 </select>
                             </div>
                         </div>

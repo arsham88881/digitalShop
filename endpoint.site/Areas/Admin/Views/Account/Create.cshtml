@@ -1,50 +1,60 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model digitalShop.application.Services.Users.Commands.RegesterUser.RequestRigesterServiceDTO
+
+
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var rigesterMessage = ViewData["rigesterMessage"];
+    var rigesterIsSuccess = ViewData["rigesterIsSuccess"];
+    var result = ViewData["resultDataRigester"];
+
 }
 
 <div class="tm-col tm-col-big">
-    <div class="bg-white tm-block" style="margin-top : 60px; margin=auto;">   <!--hand modifying (arsham)-->
+    <div class="bg-white tm-block" style="margin-top : 60px; margin:auto;">   <!--hand modifying (arsham)-->
+        
         <div class="row">
             <div class="col-12">
                 <h2 class="tm-block-title">Create Account</h2>
             </div>
         </div>
+        <span id="message" style="background-color: red; opacity:0.70;">@rigesterMessage</span>
         <div class="row">
             <div class="col-12">
-                <form action="" class="tm-signup-form">
+                <form asp-area="Admin" asp-controller="Account" asp-action="Create" method="post" class="tm-signup-form">
                     <div class="form-group">
-                        <label for="name">Account Name</label>
-                        <input placeholder="Vulputate Eleifend Nulla" id="name" name="name" type="text" class="form-control validate">
+                        <label asp-for="FullName">Account Name</label>
+                        <input placeholder="Vulputate Eleifend Nulla" type="text" class="form-control validate" asp-for="FullName">
                     </div>
                     <div class="form-group">
-                        <label for="email">Account Email</label>
-                        <input placeholder="vulputate@eleifend.co" id="email" name="email" type="email" class="form-control validate">
+                        <label asp-for="Email">Account Email</label>
+                        <input placeholder="vulputate@eleifend.co" type="email" class="form-control validate" asp-for="Email">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input placeholder="******" id="password" name="password" type="password" class="form-control validate">
+                        <label asp-for="Password">Password</label>
+                        <input placeholder="******" type="password" class="form-control validate" asp-for="Password">
                     </div>
                     <div class=" form-group">
-                        <label for="password2">Re-enter Password</label>
-                        <input placeholder="******" id="password2" name="password2" type="password" class="form-control validate">
+                        <label asp-for="RePassword">Re-enter Password</label>
+                        <input placeholder="******" type="password" class="form-control validate" asp-for="RePassword">
                     </div>
                     <div class="form-group">
                         <div class="input-group mb-3">
-                            <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
+                            <label asp-for="roles" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
                             
-                            <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="category" asp-items="ViewBag.roles" multiple>
-                                
+                            <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" asp-items="ViewBag.roles" asp-for="roles">
                             </select>
                             
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-8 tm-btn-right">
-                            <button type="submit" class="btn btn-danger">
+                            @* <button type="submit" class="btn btn-danger">
                                 Create Account
-                            </button>
+                            </button> *@
+                            <input type="submit" value="create account"  class="btn btn-primary" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-8 tm-btn-right">
@@ -58,4 +68,24 @@
         </div>
     </div>
 </div>
+@section script{
+   <script>
+       // function regester() {
+       //     const ele = document.getElementById("message");
+       //     var test = '@*@rigesterMessage';
+       //     var result = '@result';
+       //     var success = '@rigesterIsSuccess';*@
+       //     if ((bool)success != true) {
+
+       //         ele.innerHTML = "the creation is sucssesfully message: " + test + "userID: " + result;
+       //        // window.alert("the creation is sucssesfully message: " + test + "userID : " + result);
+       //     }
+       //     else {
+       //         ele.innerHTML = ("error handling : " + test) ;
+       //         //window.alert("error handling : " + test);
+       //     }
+        
+       //  }
+   </script>
+}
 
