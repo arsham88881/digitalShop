@@ -1,11 +1,15 @@
 ﻿using digitalShop.application.Services.Users.Commands.Change_status;
+using digitalShop.application.Services.Users.Commands.EditeUser;
 using digitalShop.application.Services.Users.Commands.RegesterUser;
 using digitalShop.application.Services.Users.Commands.RemoveUser;
 using digitalShop.application.Services.Users.Queries.getRole;
+using digitalShop.application.Services.Users.Queries.getSingleUser;
 using digitalShop.application.Services.Users.Queries.getUser;
 using digitalShop.common.DTOClasses;
+using endpoint.site.Areas.Admin.Models.viewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace endpoint.site.Areas.Admin.Controllers
 {
@@ -19,17 +23,23 @@ namespace endpoint.site.Areas.Admin.Controllers
         private readonly IgetRolesService _getRolesService;
         private readonly IRemoveUserService _removeUser;
         private readonly IChangeStatusUserService _changeStatusUser;
+        private readonly IGetSingleUser _getSingleUser;
+        private readonly IEditeUserService _editeUserService;
         public AccountController(Igetuserlistservice getuserlist,
                                IRigesterUserService rigesterUser,
                                IgetRolesService getRolesService,
                                IRemoveUserService removeUserService,
-                               IChangeStatusUserService changeStatusUser)
+                               IChangeStatusUserService changeStatusUser,
+                               IGetSingleUser getSingleUser,
+                               IEditeUserService editeUserService)
         {
             _getuserlist = getuserlist;
             _rigesterUser = rigesterUser;
             _getRolesService = getRolesService;
             _removeUser = removeUserService;
             _changeStatusUser = changeStatusUser;
+            _getSingleUser = getSingleUser;
+            _editeUserService = editeUserService;
         }
         public IActionResult Index(string searchkey,int page=1)
         {
@@ -114,6 +124,38 @@ namespace endpoint.site.Areas.Admin.Controllers
                 return View();
             }
         }
-
+        private long userIDD;
+        [HttpGet]
+        public IActionResult Editing(long UserId)
+        {
+            userIDD = UserId;
+            var pp = _getSingleUser.execute(UserId);
+            ViewBag.UserName = pp.data.UserName;
+            ViewBag.Rolid = pp.data.roles.ToString();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Editing(editingVM editing)
+        {
+            try
+            {
+                List<RolesInRigesterUserDTO> list = new List<RolesInRigesterUserDTO>();
+                list.Add(new RolesInRigesterUserDTO() { ID = editing.roles });
+                var Request = new RequestEditDTO()
+                {
+                    UserId = userIDD,
+                    UserName = editing.UserName,
+                    roles = list,
+                };
+                var teempp = _editeUserService.execute(Request);
+                ViewBag.message = teempp.message;
+                ViewBag.success = teempp.IsSuccess;
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

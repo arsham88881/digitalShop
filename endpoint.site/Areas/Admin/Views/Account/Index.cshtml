@@ -46,7 +46,8 @@
                               @item.IsActive
                           <td>
                                @Html.ActionLink("Change status", "ChangeStatus", new { UserId = item.id }) |
-                               @Html.ActionLink("Remove", "Remove", new { UserId = item.id  })
+                               @Html.ActionLink("Remove", "Remove", new { UserId = item.id  }) |
+                               @*@Html.ActionLink("edit", "Editing", new { UserId = item.id  }) | *@
                           </td>
                       </tr>
                   }
@@ -54,6 +55,7 @@
         </div>
     </div>
     <div class="tm-col tm-col-big">
+        @*
         <div class="bg-white tm-block">
             <div class="row">
                 <div class="col-12">
@@ -86,21 +88,24 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-sm-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Update
-                                </button>
-                            </div>
-                            <div class="col-12 col-sm-8 tm-btn-right">
-                                <button type="submit" class="btn btn-danger">
-                                    Delete Account
-                                </button>
-                            </div>
-                        </div>
+                        
+                        
                     </form>
                 </div>
             </div>
+            *@
+        <div class="row">
+        <div class="col-12 col-sm-4">
+        <button type="submit" class="btn btn-primary">
+        Update
+        </button>
+        </div>
+        <div class="col-12 col-sm-8 tm-btn-right">
+        <button type="submit" class="btn btn-danger">
+        Delete Account
+        </button>
+        </div>
+        </div>
             <div class="row">
                 <div class="col-12 col-sm-8 tm-btn-right">
                     <a href="~/admin/account/create" class="btn btn-danger">Create Account</a>

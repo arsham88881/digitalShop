@@ -2,6 +2,7 @@
 using digitalShop.common;
 using digitalShop.common.DTOClasses;
 using digitalShop.domain.entites.users;
+using System.Data;
 using System.Globalization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -89,7 +90,16 @@ namespace digitalShop.application.Services.Users.Commands.RegesterUser
                         User = user,
                         UserId = user.Id
                     });
+                    var userr = new UserInRole()
+                    {
+                        Role = role,
+                        RoleID = item.ID,
+                        User = user,
+                        UserId = user.Id
+                    };
+                    _context.userInRoles.Add(userr);
                 }
+                
                 user.UserInRoles = userInRoles;
                 _context.users.Add(user);
                 _context.SaveChanges();

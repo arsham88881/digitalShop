@@ -9,6 +9,8 @@ using digitalShop.application.Services.Users.Queries.getRole;
 using digitalShop.application.Services.Users.Commands.RegesterUser;
 using digitalShop.application.Services.Users.Commands.RemoveUser;
 using digitalShop.application.Services.Users.Commands.Change_status;
+using digitalShop.application.Services.Users.Commands.EditeUser;
+using digitalShop.application.Services.Users.Queries.getSingleUser;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +26,8 @@ builder.Services.AddScoped<IRigesterUserService, RigesterUserService>();
 builder.Services.AddScoped<IgetRolesService, GetRolesService>();
 builder.Services.AddScoped<IChangeStatusUserService, ChangeStatusUserService>();
 builder.Services.AddScoped<IRemoveUserService, RemoveUserService>();
-
+builder.Services.AddScoped<IEditeUserService, EditeUserService>();
+builder.Services.AddScoped<IGetSingleUser, GetSingleUser>();
 
 /////////////////////////////////////////////////////////////////////////////////////
 var app = builder.Build();

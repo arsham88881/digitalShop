@@ -1,0 +1,68 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model digitalShop.application.Services.Users.Commands.RegesterUser.RequestRigesterServiceDTO
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var rigesterMessage = ViewData["rigesterMessage"];
+    var rigesterIsSuccess = ViewData["rigesterIsSuccess"];
+    var result = ViewData["resultDataRigester"];
+}
+@section csses{
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="~/adminlayout/css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/adminlayout/css/fullcalendar.min.css">
+    <!-- https://fullcalendar.io/ -->
+    <link rel="stylesheet" href="~/adminlayout/css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/adminlayout/css/tooplate.css">
+}
+
+<div class="tm-col tm-col-big">
+    <div class="bg-white tm-block" style="margin-top : 60px; margin:auto;">
+        <!--hand modifying (arsham)-->
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="tm-block-title">Create Account</h2>
+            </div>
+        </div>
+        <span id="message" style="background-color: red; opacity:0.70;">@rigesterMessage</span>
+        <div class="row">
+            <div class="col-12">
+                <form asp-controller="User" asp-action="Register" method="post" class="tm-signup-form">
+                    <div class="form-group">
+                        <label asp-for="FullName">Account Name</label>
+                        <input placeholder="Vulputate Eleifend Nulla" type="text" class="form-control validate" asp-for="FullName">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Account Email</label>
+                        <input placeholder="vulputate@eleifend.co" type="email" class="form-control validate" asp-for="Email">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input placeholder="******" type="password" class="form-control validate" asp-for="Password">
+                    </div>
+                    <div class=" form-group">
+                        <label asp-for="RePassword">Re-enter Password</label>
+                        <input placeholder="******" type="password" class="form-control validate" asp-for="RePassword">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-8 tm-btn-right">
+                            <input type="submit" value="create account" class="btn btn-primary" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-8 tm-btn-right">
+                        <a href="~/home/index" class="btn btn-danger">
+                            back
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

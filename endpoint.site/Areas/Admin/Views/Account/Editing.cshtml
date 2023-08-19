@@ -1,0 +1,52 @@
+﻿@using digitalShop.common.DTOClasses
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using endpoint.site.Areas.Admin.Models.viewModel
+@model editingVM
+@{
+    ViewData["Title"] = "Editing";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var rigesterMessage = ViewBag.message;
+}
+
+<div class="bg-white tm-block" style="margin-top : 60px; margin:auto;">
+    <!--hand modifying (arsham)-->
+
+    <div class="row">
+        <div class="col-12">
+            <h2 class="tm-block-title">edit Account</h2>
+        </div>
+    </div>
+    <span id="message" style="background-color: red; opacity:0.70;">@rigesterMessage</span>
+    <div class="row">
+        <div class="col-12">
+            <form asp-area="Admin" asp-controller="Account" asp-action="Editing" method="post" class="tm-signup-form">
+                <div class="form-group">
+                    <label asp-for="UserName">Account Name</label>
+                    <input placeholder="@ViewBag.UserName" type="text" class="form-control validate" asp-for="UserName">
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <label asp-for="roles" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">roles</label>
+
+                        <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" asp-items="ViewBag.roles" asp-for="roles">
+                            <option>@ViewBag.Rolid</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-8 tm-btn-right">
+                        <input type="submit" value="create account" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="col-12 col-sm-8 tm-btn-right">
+                    <a href="~/admin/home/index" class="btn btn-danger">
+                        back
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
