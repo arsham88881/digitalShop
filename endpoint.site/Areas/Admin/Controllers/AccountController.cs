@@ -139,6 +139,7 @@ namespace endpoint.site.Areas.Admin.Controllers
         {
             try
             {
+                
                 List<RolesInRigesterUserDTO> list = new List<RolesInRigesterUserDTO>();
                 list.Add(new RolesInRigesterUserDTO() { ID = editing.roles });
                 var Request = new RequestEditDTO()
